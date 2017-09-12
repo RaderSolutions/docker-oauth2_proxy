@@ -11,7 +11,7 @@ ENV ARCHIVE=$oauth2Project/releases/download/$OAUTH2_PROXY_BRANCH/oauth2_proxy-$
 
 ENV PATH /opt/oauth2-proxy/bin:$PATH
 
-RUN newArchive=`wget https://github.com$oauth2Project/releases/ -q -O - | grep -m 1 "linux-amd64" | awk '{ print $2 }' | cut -d\" -f 2` && if [[ $newArchive == *"releases"* ]] ; then export ARCHIVE=$newArchive ; echo "ARCHIVE set to most-current oauth2_proxy release" ; else export newArchive=$newArchive ; echo "ARCHIVE variable hardcoded because dynamic method failed" ; fi 
+RUN newArchive=`wget https://github.com$oauth2Project/releases/ -q -O - | grep -m 1 "linux-amd64" | awk '{ print $2 }' | cut -d\" -f 2` && if test "${newArchive#*"release"}" != "$newArchive" ; then export ARCHIVE=$newArchive ; echo "ARCHIVE set to most-current oauth2_proxy release" ; else export newArchive=$newArchive ; echo "ARCHIVE variable hardcoded because dynamic method failed" ; fi 
 
 ENV tarPath=https://github.com$ARCHIVE
 
