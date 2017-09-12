@@ -11,7 +11,7 @@ ENV ARCHIVE=$oauth2Project/releases/download/$OAUTH2_PROXY_BRANCH/oauth2_proxy-$
 
 ENV PATH /opt/oauth2-proxy/bin:$PATH
 
-RUN newArchive=`wget https://github.com$oauth2Project/releases/ -q -O - | grep -m 1 "linux-amd64" | awk '{ print $2 }' | cut -d\" -f 2` && if $newArchive -contains "releases"; then export ARCHIVE=$newArchive ; else echo "ARCHIVE variable hardcoded" ; fi 
+RUN newArchive=`wget https://github.com$oauth2Project/releases/ -q -O - | grep -m 1 "linux-amd64" | awk '{ print $2 }' | cut -d\" -f 2` && if $newArchive -contains "releases"; then export ARCHIVE=$newArchive ; else export newArchive=$newArchive ; echo "ARCHIVE variable hardcoded" ; fi 
 
 RUN mkdir -p /opt/oauth2-proxy/bin && mkdir /opt/oauth2-proxy/etc && \
     curl -L -k --silent \
