@@ -2,7 +2,7 @@ FROM buildpack-deps:jessie-curl
 
 # set to 1 to use the failback values
 # set to 0 to attempt to pull the most-recent build
-ENV FAILBACK_OVERRIDE=1
+ENV FAILBACK_OVERRIDE=0
 ENV oauth2Project=/bitly/oauth2_proxy
 
 
