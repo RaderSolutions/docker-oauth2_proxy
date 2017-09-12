@@ -1,16 +1,16 @@
 FROM buildpack-deps:jessie-curl
 
-# set to zero to use the failback values
-ENV FAILBACK_OVERRIDE=1
+# set to ZERO to use the failback values
+ENV FAILBACK_OVERRIDE=0
 ENV oauth2Project=/bitly/oauth2_proxy
 
 
 # this group of ENV variables are backup in case the parsing doesnt work
 # we will also hard-code these when creating a historical branch
 # The values must match exactly the release from the $oauth2Project github project
-ENV FAILBACK_OAUTH2_PROXY_BRANCH=v2.1
-ENV FAILBACK_OAUTH2_PROXY_VERSION=2.1
-ENV FAILBACK_GOLANG_VERSION=1.6
+ENV FAILBACK_OAUTH2_PROXY_BRANCH=v2.0.1
+ENV FAILBACK_OAUTH2_PROXY_VERSION=2.0.1
+ENV FAILBACK_GOLANG_VERSION=1.4.2
 
 ENV PATH /opt/oauth2-proxy/bin:$PATH
 
