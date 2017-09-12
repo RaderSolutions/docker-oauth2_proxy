@@ -15,7 +15,7 @@ ENV FAILBACK_GOLANG_VERSION=1.4.2
 ENV PATH /opt/oauth2-proxy/bin:$PATH
 
 RUN newArchive=`wget https://github.com$oauth2Project/releases/ -q -O - | grep -m $FAILBACK_OVERRIDE "linux-amd64" | grep . -m 1 | awk '{ print $2 }' | cut -d\" -f 2` && \
-    if test "${newArchive#*"release"}" != "$newArchive" ; then export ARCHIVE=$newArchive ; echo "ARCHIVE set to most-current oauth2_proxy release" ; else export ARCHIVE=$oauth2Project/releases/download/$FAILBACK_OAUTH2_PROXY_BRANCH/oauth2_proxy-$FAILBACK_OAUTH2_PROXY_VERSION.linux-amd64.go$FAILBACK_GOLANG_VERSION.tar.gz ; echo "ARCHIVE variable hardcoded because dynamic method failed" ; fi && \
+    if test "${newArchive#*"release"}" != "$newArchive" ; then export ARCHIVE=$newArchive ; echo "ARCHIVE set to most-current oauth2_proxy release" ; else export ARCHIVE=$oauth2Project/releases/download/$FAILBACK_OAUTH2_PROXY_BRANCH/oauth2_proxy-$FAILBACK_OAUTH2_PROXY_VERSION.linux-amd64.go$FAILBACK_GOLANG_VERSION.tar.gz ; echo "ARCHIVE variable hardcoded because dynamic method failed or was overridden" ; fi && \
     tarPath=https://github.com$ARCHIVE && \
     echo "Downloading $tarPath" ; mkdir -p /opt/oauth2-proxy/bin && mkdir /opt/oauth2-proxy/etc && \
     curl -L -k --silent \
