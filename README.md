@@ -5,5 +5,5 @@ This build pulls the most-recent build every time
 
 Original work pulled from: https://hub.docker.com/r/wingedkiwi/oauth2-proxy/
 
-[github](https://github.com/RaderSolutions/docker-oauth2_proxy)
-[docker hub](https://hub.docker.com/r/radersolutions/oauth2_proxy/)
+- [github](https://github.com/RaderSolutions/docker-oauth2_proxy)
+- [docker hub](https://hub.docker.com/r/radersolutions/oauth2_proxy/)
