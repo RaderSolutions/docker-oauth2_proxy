@@ -23,5 +23,5 @@ RUN newArchive=`wget https://github.com$oauth2Project/releases/ -q -O - | grep -
       $tarPath  | \
       tar xz --strip-components 1 -C /opt/oauth2-proxy/bin
 
-CMD oauth2_proxy -config=/opt/oauth2-proxy/etc/config
+CMD oauth2_proxy -config=/opt/oauth2-proxy/etc/config -proxy-prefix "/rader_oauth2"
 

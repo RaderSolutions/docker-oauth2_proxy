@@ -7,3 +7,6 @@ Original work pulled from: https://hub.docker.com/r/wingedkiwi/oauth2-proxy/
 
 - [github](https://github.com/RaderSolutions/docker-oauth2_proxy)
 - [docker hub](https://hub.docker.com/r/radersolutions/oauth2_proxy/)
+
+# Customizations
+`-proxy-prefix` set to `/rader_oauth2`
